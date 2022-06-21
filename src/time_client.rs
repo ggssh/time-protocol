@@ -7,12 +7,12 @@ use chrono::Utc;
 
 lazy_static! {
     // 1900和1970之间的timestamp差值
-    static ref DIFF: i64 = NaiveDate::from_ymd(1900, 1, 1)
+    pub static ref DIFF: i64 = NaiveDate::from_ymd(1900, 1, 1)
         .and_hms(0, 0, 0)
         .timestamp()
         .abs();
 
-    static ref CN_TIMEZONE:FixedOffset =FixedOffset::east(8 * 3600);
+    pub static ref CN_TIMEZONE:FixedOffset =FixedOffset::east(8 * 3600);
 }
 
 fn get_time() {
