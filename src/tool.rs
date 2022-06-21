@@ -1,3 +1,4 @@
+// 4*u8->i32
 pub fn u8_to_i32(v: [u8; 4]) -> i32 {
     if v.len() < 4 {
         return 0;
@@ -8,6 +9,7 @@ pub fn u8_to_i32(v: [u8; 4]) -> i32 {
     }
 }
 
+/// i32->4*u8
 pub fn i32_to_u8(v: i32) -> [u8; 4] {
     unsafe {
         let i32ptr = &v as *const i32;
