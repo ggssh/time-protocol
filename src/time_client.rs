@@ -36,7 +36,7 @@ impl Client {
         }
     }
 
-    pub fn update(&self) -> Result<(), Error> {
+    pub fn update(&self) -> Result<DateTime<FixedOffset>, Error> {
         let mut stream = TcpStream::connect(format!("{}:{}", self.address, self.port))?;
 
         stream
@@ -55,8 +55,8 @@ impl Client {
         let dt = NaiveDateTime::from_timestamp(from_epoch, 0);
 
         let now = DateTime::<Utc>::from_utc(dt, Utc).with_timezone(&*CN_TIMEZONE);
-        println!("CurrentTime: {}", now);
-        Ok(())
+        // println!("CurrentTime: {}", now);
+        Ok(now)
     }
 }
 

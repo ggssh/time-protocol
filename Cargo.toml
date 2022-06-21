@@ -7,5 +7,7 @@ edition = "2021"
 
 [dependencies]
 chrono = "0.4.19"
-tui = "0.18.0"
+tui = "0.18"
+crossterm = "0.23"
 lazy_static = "1.4.0"
+unicode-width = "0.1"
