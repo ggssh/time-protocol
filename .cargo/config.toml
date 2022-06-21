@@ -1,0 +1,3 @@
+[alias]
+rc = "run --bin client_starter"
+rs = "run --bin server_starter"

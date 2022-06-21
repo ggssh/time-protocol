@@ -55,19 +55,6 @@ impl Default for App {
     }
 }
 
-// #[macro_use]
-// extern crate lazy_static;
-// lazy_static! {
-//     static ref PRE_BUFFER: Vec<String> = {
-//         let mut v = Vec::new();
-//         v
-//     };
-//     static ref SUC_BUFFER: Vec<String> =  {
-//         let mut v = Vec::new();
-//         v
-//     };
-// }
-
 fn main() -> Result<(), Box<dyn Error>> {
     // setup terminal
     enable_raw_mode()?;
