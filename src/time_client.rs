@@ -14,6 +14,7 @@ lazy_static! {
     pub static ref CN_TIMEZONE:FixedOffset =FixedOffset::east(8 * 3600);
 }
 
+#[derive(Debug)]
 pub struct Client {
     address: String,
     port: u32,
