@@ -22,3 +22,30 @@ pub fn i32_to_u8(v: i32) -> [u8; 4] {
         ];
     }
 }
+
+pub fn u8_to_i64(v: [u8; 8]) -> i64 {
+    if v.len() < 8 {
+        return 0;
+    }
+    unsafe {
+        let i64ptr = v.as_ptr() as *const i64;
+        return *i64ptr;
+    }
+}
+
+pub fn i64_to_u8(v: i64) -> [u8; 8] {
+    unsafe {
+        let i64ptr = &v as *const i64;
+        let u8ptr = i64ptr as *const u8;
+        return [
+            *u8ptr.offset(0),
+            *u8ptr.offset(1),
+            *u8ptr.offset(2),
+            *u8ptr.offset(3),
+            *u8ptr.offset(4),
+            *u8ptr.offset(5),
+            *u8ptr.offset(6),
+            *u8ptr.offset(7),
+        ];
+    }
+}

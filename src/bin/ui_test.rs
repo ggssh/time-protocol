@@ -105,13 +105,17 @@ fn run_app<B: Backend>(terminal: &mut Terminal<B>, mut app: App) -> io::Result<(
                         // 往后面的数组中头部插入当前messages的最后一个
                         app.suc_messages
                             .insert(0, app.messages.last().unwrap().clone());
-                            app.messages.remove(app.messages.len() - 1);
+                        app.messages.remove(app.messages.len() - 1);
                         app.messages
                             .insert(0, app.pre_messages.last().unwrap().clone());
                         app.pre_messages.remove(app.pre_messages.len() - 1);
                     }
                     KeyCode::Down => {
-                        // 向下翻页
+                        //todo 在messages前后加上message_buffer用来实现上下翻滚
+                        if app.suc_messages.is_empty() {
+                            // todo
+                            return Ok(());
+                        }
                     }
                     _ => {}
                 },

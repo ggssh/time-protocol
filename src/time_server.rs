@@ -77,6 +77,14 @@ impl Server {
         }
         Ok(())
     }
+
+    pub fn set_address(&mut self, address: &str) {
+        self.address = address.to_string();
+    }
+
+    pub fn set_port(&mut self, port: u32) {
+        self.port = port;
+    }
 }
 
 // pub fn get_cur_time() -> i32 {

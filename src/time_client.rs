@@ -58,6 +58,14 @@ impl Client {
         // println!("CurrentTime: {}", now);
         Ok(now)
     }
+
+    pub fn set_address(&mut self, address: &str) {
+        self.address = address.to_string();
+    }
+
+    pub fn set_port(&mut self, port: u32) {
+        self.port = port;
+    }
 }
 
 // fn get_time() {
