@@ -1,9 +1,11 @@
 [package]
 name = "time-protocol"
-version = "0.1.0"
+version = "1.1.0"
 edition = "2021"
 authors = ["ggssh <me@ggssh.cn>"]
 readme = "README.md"
+description = "TIME protocal written in Rust"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dev-dependencies]
