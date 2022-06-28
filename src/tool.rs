@@ -1,5 +1,3 @@
-use std::path::Path;
-
 // 4*u8->i32
 pub fn u8_to_i32(v: [u8; 4]) -> i32 {
     if v.len() < 4 {
@@ -59,13 +57,4 @@ pub fn vec_to_string(v: &Vec<String>) -> String {
         s.push('\n');
     }
     s
-}
-
-pub fn get_icon(path: &Path) -> (Vec<u8>, u32, u32) {
-    let image = image::open(path)
-        .expect("Failed to open icon path")
-        .into_rgba8();
-    let (width, height) = image.dimensions();
-    let rgba = image.into_raw();
-    (rgba, width, height)
 }

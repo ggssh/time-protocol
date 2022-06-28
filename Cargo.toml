@@ -6,21 +6,21 @@ authors = ["ggssh <me@ggssh.cn>"]
 readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-chrono = "0.4.19"
+[dev-dependencies]
 tui = "0.18"
 crossterm = "0.23"
-lazy_static = "1.4.0"
 unicode-width = "0.1"
 egui = "0.18.1"
 eframe = "0.18.0"
 image = "0.24.2"
 
+[dependencies]
+chrono = "0.4.19"
+lazy_static = "1.4.0"
+
 [profile.dev]
 opt-level = 1               # 使用稍高一些的优化级别，最低是0，最高是3
 overflow-checks = false     # 关闭整数溢出检查
-
 
 [profile.release]
 opt-level = 3

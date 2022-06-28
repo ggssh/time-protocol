@@ -1,4 +1,4 @@
 [alias]
-rc = "run --bin client_starter"
-rs = "run --bin server_starter"
-re = "run --bin egui_test"
+rc = "run --example client_starter"
+rs = "run --example server_starter"
+re = "run --example egui_test"

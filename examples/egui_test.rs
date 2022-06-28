@@ -1,13 +1,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
 
-use std::path::Path;
-
-use chrono::{DateTime, FixedOffset, NaiveDate};
 use eframe::{egui, IconData};
-use time_protocol::{
-    time_client::Client,
-    tool::{get_icon, vec_to_string},
-};
+use std::path::Path;
+use time_protocol::{time_client::Client, tool::vec_to_string};
 
 const ICON_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/assets/image.png");
 
@@ -61,14 +56,13 @@ impl eframe::App for TimeApp {
                     let mut client = Client::default();
                     client.set_address(&self.address);
                     client.set_port(self.port.parse::<u32>().unwrap_or(37));
-                    let time = client.update().unwrap_or(DateTime::<FixedOffset>::from_utc(
-                        NaiveDate::from_ymd(1900, 1, 1).and_hms(0, 0, 0),
-                        FixedOffset::east(0),
-                    ));
+                    let time = client.update().unwrap_or(
+                        "Some errors occurred. Please check port and address.".to_string(),
+                    );
 
                     // 条件编译
-                    #[cfg(debug_assertions)]
-                    println!("{:#?}", &client);
+                    // #[cfg(debug_assertions)]
+                    // println!("{:#?}", &client);
 
                     self.messages.push(format!(
                         "[TIME Protocol] from {}:{} update time: {}",
@@ -87,4 +81,13 @@ impl eframe::App for TimeApp {
             });
         });
     }
+}
+
+fn get_icon(path: &Path) -> (Vec<u8>, u32, u32) {
+    let image = image::open(path)
+        .expect("Failed to open icon path")
+        .into_rgba8();
+    let (width, height) = image.dimensions();
+    let rgba = image.into_raw();
+    (rgba, width, height)
 }

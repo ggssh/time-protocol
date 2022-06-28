@@ -41,7 +41,6 @@ impl Server {
 
     fn get_cur_time() -> i32 {
         let ts = Utc::now().timestamp();
-        // println!("ts: {}", ts);
 
         let time_since_1900 = ts + *DIFF;
 
