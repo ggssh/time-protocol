@@ -6,6 +6,7 @@ authors = ["ggssh <me@ggssh.cn>"]
 readme = "README.md"
 description = "TIME protocal written in Rust"
 license = "MIT"
+repository = "https://github.com/ggssh/time-protocol"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dev-dependencies]
